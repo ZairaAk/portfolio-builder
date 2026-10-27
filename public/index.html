@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Folio — Build Your Portfolio</title>
+  <meta name="description" content="Create a stunning, shareable portfolio in minutes. Showcase your projects, skills, and experience with beautiful editorial templates." />
+  <meta property="og:title" content="Folio — Build Your Portfolio" />
+  <meta property="og:description" content="Create a stunning, shareable portfolio in minutes." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/landing.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-brand">Folio <span>✦</span></div>
+    <ul class="navbar-links">
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#features">Features</a></li>
+    </ul>
+    <div class="navbar-cta">
+      <a href="/login.html" class="btn btn-sm" id="nav-login-btn">Sign in</a>
+      <a href="/login.html#register" class="btn btn-sm btn-primary" id="nav-register-btn">Get started</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="accent-block accent-blue"></span>
+          <span>Portfolio Builder</span>
+        </div>
+        <h1 class="hero-title">
+          Your work,<br />
+          <span class="hand-accent">beautifully told.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Design your professional portfolio in minutes. Add your projects, skills, and story — then share it with one link.
+        </p>
+        <div class="hero-actions">
+          <a href="/login.html#register" class="btn btn-primary">Start building — it's free</a>
+          <span class="hero-note">No credit card required</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <!-- Preview Card 1 -->
+          <div class="portfolio-preview-card">
+            <div class="preview-card-header" style="background: #F5F2ED; padding: 1rem;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#4B6BB5;display:flex;align-items:center;justify-content:center;color:white;font-family:'DM Serif Display',serif;font-size:1.1rem;">Z</div>
+            </div>
+            <div class="preview-card-body">
+              <div class="preview-card-name">Zaira A.</div>
+              <div class="preview-card-role">Full-Stack Developer</div>
+              <div style="display:flex;gap:4px;margin-top:8px;">
+                <span style="height:4px;border-radius:999px;background:#4B6BB5;flex:3;"></span>
+                <span style="height:4px;border-radius:999px;background:#EDE9E2;flex:1;"></span>
+              </div>
+            </div>
+          </div>
+          <!-- Preview Card 2 -->
+          <div class="portfolio-preview-card">
+            <div class="preview-card-header" style="background: #1A1A18; padding: 1rem; align-items:flex-start;">
+              <div style="font-family:'DM Serif Display',serif;color:white;font-size:1.1rem;font-style:italic;">Creative Designer</div>
+            </div>
+            <div class="preview-card-body">
+              <div class="preview-card-name">Alex R.</div>
+              <div class="preview-card-role">UI/UX Designer</div>
+              <div style="display:flex;gap:4px;margin-top:8px;">
+                <div style="width:8px;height:8px;border-radius:50%;background:#C8463A;"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#D4A843;"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#3A6B4A;"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Preview Card 3 -->
+          <div class="portfolio-preview-card">
+            <div class="preview-card-header" style="background: #EDE9E2; padding: 1rem;">
+              <div style="font-family:'Caveat',cursive;font-size:1rem;color:#7A7870;">Part. 01</div>
+            </div>
+            <div class="preview-card-body">
+              <div class="preview-card-name">Sam K.</div>
+              <div class="preview-card-role">Data Scientist</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-label">Process</div>
+      <h2>Three steps to your<br /><em>perfect portfolio</em></h2>
+
+      <div class="steps-grid">
+        <div class="step reveal">
+          <div class="step-number">01</div>
+          <div class="step-accent" style="background: var(--blue);"></div>
+          <h3>Create your account</h3>
+          <p>Sign up in seconds. Choose a unique username that becomes your portfolio URL — like <code>folio.app/u/yourname</code>.</p>
+        </div>
+        <div class="step reveal" style="transition-delay: 0.1s;">
+          <div class="step-number">02</div>
+          <div class="step-accent" style="background: var(--red);"></div>
+          <h3>Add your content</h3>
+          <p>Fill in your projects, skills, work experience, and education. Upload images, add links — everything you need.</p>
+        </div>
+        <div class="step reveal" style="transition-delay: 0.2s;">
+          <div class="step-number">03</div>
+          <div class="step-accent" style="background: var(--green);"></div>
+          <h3>Publish & share</h3>
+          <p>Pick a template, toggle publish, and share your link. Track how many people view your portfolio in real time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-label">What's included</div>
+      <h2>Everything you need,<br /><em>nothing you don't</em></h2>
+
+      <div class="features-grid">
+        <div class="feature-item reveal">
+          <div class="feature-icon" style="background: rgba(75,107,181,0.1);">🎨</div>
+          <h4>3 Beautiful Templates</h4>
+          <p>Choose from Editorial, Minimal, or Bold. Switch any time — your content moves with you.</p>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon" style="background: rgba(58,107,74,0.1);">🔗</div>
+          <h4>Shareable Public URL</h4>
+          <p>Every portfolio gets its own link at <code>/u/username</code>. Send it to recruiters or add it to your resume.</p>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon" style="background: rgba(200,70,58,0.1);">📊</div>
+          <h4>View Analytics</h4>
+          <p>See how many people have visited your portfolio. Know when your link is getting traction.</p>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon" style="background: rgba(212,168,67,0.1);">📁</div>
+          <h4>Full Content Management</h4>
+          <p>Projects, skills, experience, education — all editable, reorderable, and deletable from one dashboard.</p>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon" style="background: rgba(75,107,181,0.1);">🖼️</div>
+          <h4>Image Uploads</h4>
+          <p>Upload your profile photo and project screenshots. Images are stored and served alongside your portfolio.</p>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon" style="background: rgba(58,107,74,0.1);">🎯</div>
+          <h4>Drag to Reorder</h4>
+          <p>Arrange your projects in the order you want. Drag and drop right from your dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <div class="section-label" style="justify-content: center;">Ready?</div>
+      <h2>Your portfolio is<br /><em>waiting to be built.</em></h2>
+      <p>Join and create yours today — completely free.</p>
+      <a href="/login.html#register" class="btn btn-primary" style="font-size: 1rem; padding: 1rem 2.5rem;">
+        Create your portfolio →
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer">
+      <div class="footer-brand">Folio ✦</div>
+      <div class="footer-note">
+        Built with ❤️ · 
+        <a href="https://github.com/ZairaAk/portfolio-builder" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // If user is logged in, update nav
+    const token = localStorage.getItem('folio_token');
+    const user = localStorage.getItem('folio_user');
+    if (token && user) {
+      const navLogin = document.getElementById('nav-login-btn');
+      const navRegister = document.getElementById('nav-register-btn');
+      navLogin.textContent = 'Dashboard';
+      navLogin.href = '/dashboard.html';
+      navRegister.textContent = 'My Portfolio';
+      const u = JSON.parse(user);
+      navRegister.href = `/u/${u.username}`;
+    }
+  </script>
+</body>
+</html>

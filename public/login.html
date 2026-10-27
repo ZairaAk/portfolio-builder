@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — Folio</title>
+  <meta name="description" content="Sign in or create your Folio account to start building your portfolio." />
+  <link rel="stylesheet" href="/css/main.css" />
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .auth-visual {
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-visual::before {
+      content: 'Folio';
+      position: absolute;
+      font-family: var(--font-serif);
+      font-size: 18vw;
+      font-style: italic;
+      color: rgba(255,255,255,0.04);
+      bottom: -2rem;
+      left: -1rem;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .auth-visual-brand {
+      font-family: var(--font-serif);
+      color: var(--cream);
+      font-size: 1.4rem;
+    }
+
+    .auth-visual-bottom {
+      position: relative;
+      z-index: 1;
+    }
+
+    .auth-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .auth-quote-attr {
+      font-size: 0.8rem;
+      color: rgba(245,242,237,0.5);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .color-dots {
+      display: flex;
+      gap: 8px;
+      margin-top: 2rem;
+    }
+
+    .color-dot-lg {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+
+    .auth-form-side {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      background: var(--cream);
+    }
+
+    .auth-form-container {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .auth-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .auth-tab {
+      flex: 1;
+      text-align: center;
+      padding: 0.875rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all var(--transition);
+      color: var(--ink-muted);
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: var(--font-sans);
+    }
+
+    .auth-tab.active {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    .auth-panel { display: none; }
+    .auth-panel.active { display: block; }
+
+    .auth-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .auth-subtitle {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      margin-bottom: 2rem;
+    }
+
+    .auth-footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 1.5rem;
+    }
+
+    .auth-footer-note a { color: var(--blue); }
+
+    .back-home {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-bottom: 2rem;
+      transition: color var(--transition);
+    }
+
+    .back-home:hover { color: var(--ink); }
+
+    .username-preview {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 0.25rem;
+    }
+
+    .username-preview strong { color: var(--blue); }
+
+    @media (max-width: 768px) {
+      .auth-page { grid-template-columns: 1fr; }
+      .auth-visual { display: none; }
+      .auth-form-side { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-page">
+  <!-- Visual Side -->
+  <div class="auth-visual">
+    <div class="auth-visual-brand">Folio ✦</div>
+    <div class="auth-visual-bottom">
+      <p class="auth-quote">"The details are not the details. They make the design."</p>
+      <p class="auth-quote-attr">— Charles Eames</p>
+      <div class="color-dots">
+        <div class="color-dot-lg" style="background: var(--blue);"></div>
+        <div class="color-dot-lg" style="background: var(--red);"></div>
+        <div class="color-dot-lg" style="background: var(--green);"></div>
+        <div class="color-dot-lg" style="background: var(--yellow);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Side -->
+  <div class="auth-form-side">
+    <div class="auth-form-container">
+      <a href="/" class="back-home">← Back to home</a>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+        <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Create Account</button>
+      </div>
+
+      <!-- Login Panel -->
+      <div class="auth-panel active" id="panel-login">
+        <h1 class="auth-title">Welcome back</h1>
+        <p class="auth-subtitle">Sign in to edit your portfolio</p>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="login-email">Email address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="you@example.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required autocomplete="current-password" />
+          </div>
+          <div id="login-error" style="display:none; color: var(--red); font-size: 0.85rem; margin-bottom: 1rem;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;" id="login-btn">
+            Sign In
+          </button>
+        </form>
+
+        <p class="auth-footer-note">
+          Don't have an account? <a href="#" onclick="switchTab('register')">Create one</a>
+        </p>
+      </div>
+
+      <!-- Register Panel -->
+      <div class="auth-panel" id="panel-register">
+        <h1 class="auth-title">Create account</h1>
+        <p class="auth-subtitle">Start building your portfolio today</p>
+
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="reg-username">Username</label>
+            <input type="text" id="reg-username" class="form-control" placeholder="yourname" required autocomplete="username"
+              pattern="[a-zA-Z0-9_\-]+" title="Only letters, numbers, hyphens and underscores" />
+            <div class="username-preview" id="username-preview">Your portfolio: <strong>folio.app/u/yourname</strong></div>
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Email address</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="you@example.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" class="form-control" placeholder="At least 6 characters" required minlength="6" autocomplete="new-password" />
+          </div>
+          <div id="register-error" style="display:none; color: var(--red); font-size: 0.85rem; margin-bottom: 1rem;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;" id="register-btn">
+            Create Account
+          </button>
+        </form>
+
+        <p class="auth-footer-note">
+          Already have an account? <a href="#" onclick="switchTab('login')">Sign in</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+  const API = '';
+
+  // Check if already logged in
+  if (localStorage.getItem('folio_token')) {
+    window.location.href = '/dashboard.html';
+  }
+
+  // Switch tab via hash
+  if (window.location.hash === '#register') switchTab('register');
+
+  function switchTab(tab) {
+    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(`tab-${tab}`).classList.add('active');
+    document.getElementById(`panel-${tab}`).classList.add('active');
+  }
+
+  // Username preview
+  document.getElementById('reg-username').addEventListener('input', (e) => {
+    const val = e.target.value || 'yourname';
+    document.getElementById('username-preview').innerHTML =
+      `Your portfolio: <strong>/u/${val.toLowerCase()}</strong>`;
+  });
+
+  // Toast
+  function toast(msg, type = 'info') {
+    const c = document.getElementById('toastContainer');
+    const t = document.createElement('div');
+    t.className = `toast toast-${type}`;
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(() => { t.style.animation = 'toastOut 0.3s ease forwards'; setTimeout(() => t.remove(), 300); }, 3500);
+  }
+
+  // Login
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('login-btn');
+    const errEl = document.getElementById('login-error');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Signing in...';
+    errEl.style.display = 'none';
+
+    try {
+      const res = await fetch(`${API}/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: document.getElementById('login-email').value,
+          password: document.getElementById('login-password').value
+        })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Login failed');
+      localStorage.setItem('folio_token', data.token);
+      localStorage.setItem('folio_user', JSON.stringify(data.user));
+      toast('Welcome back! Redirecting...', 'success');
+      setTimeout(() => window.location.href = '/dashboard.html', 800);
+    } catch (err) {
+      errEl.textContent = err.message;
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Sign In';
+    }
+  });
+
+  // Register
+  document.getElementById('registerForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('register-btn');
+    const errEl = document.getElementById('register-error');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Creating account...';
+    errEl.style.display = 'none';
+
+    try {
+      const res = await fetch(`${API}/api/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: document.getElementById('reg-username').value,
+          email: document.getElementById('reg-email').value,
+          password: document.getElementById('reg-password').value
+        })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Registration failed');
+      localStorage.setItem('folio_token', data.token);
+      localStorage.setItem('folio_user', JSON.stringify(data.user));
+      toast('Account created! Taking you to your dashboard...', 'success');
+      setTimeout(() => window.location.href = '/dashboard.html', 800);
+    } catch (err) {
+      errEl.textContent = err.message;
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Create Account';
+    }
+  });
+</script>
+</body>
+</html>
